@@ -11,6 +11,7 @@ import (
 func main() {
 	file, err := os.Open("data.txt")
 	if err != nil {
+		
 		log.Fatal("Failed to read file")
 	}
 

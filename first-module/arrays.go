@@ -22,4 +22,8 @@ func main() {
 		fmt.Println(v)
 	}
 	fmt.Println("Lenght of an Array ", len(intArray))
+
+	for index := range intArray {
+		fmt.Println(index)
+	}
 }
