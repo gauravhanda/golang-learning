@@ -25,5 +25,10 @@ func main() {
 	makeSlice = append(newSlice, 8, 9, 10)
 	fmt.Println("Ater apppend", makeSlice)
 	fmt.Println(makeSlice[2:5])
+	fmt.Println("Slice test for nil")
+	var nilSlice []int
+	fmt.Println("NiSlice", nilSlice)
+	nilSlice = append(nilSlice, 100)
+	fmt.Println("post append", nilSlice)
 
 }
