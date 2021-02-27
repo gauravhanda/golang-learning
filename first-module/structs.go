@@ -5,12 +5,23 @@ import "fmt"
 
 type myInt int32
 
+type CString string
+
 // Subscriber : Defines the subscriber of our magazine
 type Subscriber struct {
 	name       string
 	rate       float32
 	isActive   bool
 	postalCode myInt
+}
+type Address struct {
+	zipCode int8
+	street  string
+}
+
+type Employee struct {
+	id      int8
+	address Address
 }
 
 func main() {
@@ -38,6 +49,12 @@ func main() {
 
 	defSubscriber := buildDefaultSubscriber()
 	printInfo(defSubscriber)
+
+	defaultEmployee := buildDefaultEmployee()
+	fmt.Println(*defaultEmployee)
+
+	var customString float64 = float64(6)
+	fmt.Println(customString)
 }
 
 // inlineDeclaration : defines inline declaration of structs. Non resuable style but possible
@@ -78,4 +95,12 @@ func buildDefaultSubscriber() *Subscriber {
 	defaultSusbcriber.postalCode = 6004
 
 	return &defaultSusbcriber
+}
+
+func buildDefaultEmployee() *Employee {
+	// Define nested object
+	address := Address{zipCode: 8, street: "Washington Street"}
+	// define main object
+	employee := Employee{id: 16, address: address}
+	return &employee
 }
