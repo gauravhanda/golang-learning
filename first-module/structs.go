@@ -35,6 +35,9 @@ func main() {
 	updateSubscriberByDotPtr(&nidhi)
 
 	fmt.Println(nidhi)
+
+	defSubscriber := buildDefaultSubscriber()
+	printInfo(defSubscriber)
 }
 
 // inlineDeclaration : defines inline declaration of structs. Non resuable style but possible
@@ -49,6 +52,10 @@ func inlineDeclaration() {
 
 }
 
+func printInfo(defSubscriber *Subscriber) {
+	fmt.Println(*defSubscriber)
+}
+
 func updateSubscriber(subscriber Subscriber) {
 	subscriber.postalCode = 55305
 }
@@ -61,4 +68,14 @@ func updateSubscriberByPtr(subscriber *Subscriber) {
 // resolving the dot operator
 func updateSubscriberByDotPtr(subscriber *Subscriber) {
 	subscriber.postalCode = 55044
+}
+
+func buildDefaultSubscriber() *Subscriber {
+	var defaultSusbcriber Subscriber
+	defaultSusbcriber.name = "Subscriber"
+	defaultSusbcriber.isActive = false
+	defaultSusbcriber.rate = 10.99
+	defaultSusbcriber.postalCode = 6004
+
+	return &defaultSusbcriber
 }
