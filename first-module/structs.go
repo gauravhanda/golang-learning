@@ -23,6 +23,8 @@ func main() {
 	gaurav.name = "Gaurav"
 	gaurav.rate = 4.98
 	gaurav.isActive = true
+	updateSubscriber(gaurav)
+	updateSubscriberByPtr(&gaurav)
 
 	fmt.Println(gaurav)
 
@@ -30,6 +32,7 @@ func main() {
 	nidhi.name = "Nidhi"
 	nidhi.rate = 4.98
 	nidhi.isActive = false
+	updateSubscriberByDotPtr(&nidhi)
 
 	fmt.Println(nidhi)
 }
@@ -44,4 +47,18 @@ func inlineDeclaration() {
 	complexNumber.real = 7
 	fmt.Println(complexNumber)
 
+}
+
+func updateSubscriber(subscriber Subscriber) {
+	subscriber.postalCode = 55305
+}
+
+// resolving using the pointer
+func updateSubscriberByPtr(subscriber *Subscriber) {
+	(*subscriber).postalCode = 55305
+}
+
+// resolving the dot operator
+func updateSubscriberByDotPtr(subscriber *Subscriber) {
+	subscriber.postalCode = 55044
 }
