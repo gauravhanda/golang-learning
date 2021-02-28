@@ -1,6 +1,8 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 func main() {
 	// Using the main type
@@ -12,5 +14,12 @@ func main() {
 	var encoderInterface Encoding = &base64Encoder
 	fmt.Println(encoderInterface.Decode())
 	fmt.Println(encoderInterface.Encode())
+
+	urlEncoder := URLEncode{url: "this is sample text"}
+	encoderInterface = &urlEncoder
+	fmt.Println(encoderInterface.Encode())
+	fmt.Println(encoderInterface.Decode())
+
+	fmt.Println(encoderInterface.(*URLEncode))
 
 }
